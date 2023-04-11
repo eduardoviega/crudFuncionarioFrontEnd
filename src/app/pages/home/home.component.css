@@ -1,0 +1,13 @@
+.lista {
+    padding: 2vh;
+    border: 1px solid #c4c4c4;
+    border-radius: 15px;
+}
+
+.botoes {
+    text-align: right;
+    border-bottom-width: 1px #000; 
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px !important;
+}

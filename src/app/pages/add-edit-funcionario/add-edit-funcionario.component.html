@@ -1,0 +1,29 @@
+<h1 class="pt-5" *ngIf="isCadastro; else edicao">Cadastrar Funcionário:</h1>
+<ng-template #edicao>
+    <h1 class="pt-5">Editar Funcionário:</h1>
+</ng-template>
+<form>
+    <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" min="2" max="30" [(ngModel)]="funcionario.nome" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nome">
+    </div>
+    <div class="form-group">
+        <label for="sobrenome">Sobrenome:</label>
+        <input type="text" min="2" max="50" [(ngModel)]="funcionario.sobrenome" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Sobrenome">
+    </div>
+    <div class="form-group">
+        <label for="email">Endereço de email:</label>
+        <input type="email" [(ngModel)]="funcionario.email" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="nome@exemplo.com">
+    </div>
+    <div class="form-group">
+        <label for="numeroNis">Número do NIS (PIS):</label>
+        <input type="number" min="11" max="11" [(ngModel)]="funcionario.numeroNis" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="12345678901">
+    </div>
+    <div class="form-group botoes">
+        <button *ngIf="isCadastro; else btnSalvar" (click)="addFuncionario()" class="btn btn-success col-3">Cadastrar</button>
+        <ng-template #btnSalvar>
+            <button (click)="editFuncionario()" class="btn btn-success col-3">Salvar</button>
+        </ng-template>
+        <button routerLink="/" class="btn btn-danger col-3">Voltar</button>
+    </div>
+</form>

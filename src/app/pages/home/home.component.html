@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-between pt-5">
+    <h1>Funcionários:</h1>
+    <a href="/cadastrar"><button type="button" class="btn btn-success">Cadastrar Usuário</button></a>
+</div>
+<div class="lista">
+    <table class="table" style="box-sizing: inherit;">
+        <thead style="border-bottom-width: 1px; border-color: #000;">
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Número do NIS (PIS)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let funcionario of funcionariosList$|async">
+                <th>{{ funcionario.nome }}</th>
+                <th>{{ funcionario.sobrenome }}</th>
+                <td>{{ funcionario.email }}</td>
+                <td>{{ funcionario.numeroNis }}</td>
+                <td class="botoes">
+                    <button mat-raised-button routerLink="editar/{{funcionario.id}}" class="btn btn-warning">Editar</button>
+                    <button mat-raised-button (click)="excluir(funcionario.id)" class="btn btn-danger">Apagar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
